@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+<!--
+   <insert tableName="authors">
+       <column name="first-name" value="Text value" />
+       <column name="middle-name" value="Text value" />
+       <column name="last-name" value="Text value" />
+   </insert>
+-->
+    
+<!--
+    George R. R. Martin
+    Nancy Richards Akers
+    Peter Wilson
+    Lemony Snicket
+    Clive Cussler
+    Stephen King
+    James M. Sawrey
+    Brian Tracy
+    Allen D. Bragdon
+    Anatoly Shcharansky
+-->
+
+    <changeSet id="1" author="Nikkk">
+<!--        Start-->
+        <insert tableName="authors">
+            <column name="first-name" value="George" />
+            <column name="middle-name" value="R. R." />
+            <column name="last-name" value="Martin" />
+        </insert>
+        <insert tableName="authors">
+            <column name="first-name" value="Nancy" />
+            <column name="middle-name" value="Richards" />
+            <column name="last-name" value="Akers" />
+        </insert>
+        <insert tableName="authors">
+            <column name="first-name" value="Peter" />
+            <column name="middle-name"/>
+            <column name="last-name" value="Wilson" />
+        </insert>
+        <insert tableName="authors">
+            <column name="first-name" value="Lemony" />
+            <column name="middle-name"  />
+            <column name="last-name" value="Snicket" />
+        </insert>
+        <insert tableName="authors">
+            <column name="first-name" value="Clive" />
+            <column name="middle-name"  />
+            <column name="last-name" value="Cussler" />
+        </insert>
+<!--        5-->
+        <insert tableName="authors">
+            <column name="first-name" value="Stephen" />
+            <column name="middle-name"  />
+            <column name="last-name" value="King" />
+        </insert>
+        <insert tableName="authors">
+            <column name="first-name" value="James" />
+            <column name="middle-name" value="M." />
+            <column name="last-name" value="Sawrey" />
+        </insert>
+        <insert tableName="authors">
+            <column name="first-name" value="Brian" />
+            <column name="middle-name"  />
+            <column name="last-name" value="Tracy" />
+        </insert>
+        <insert tableName="authors">
+            <column name="first-name" value="Allen" />
+            <column name="middle-name" value="D." />
+            <column name="last-name" value="Bragdon" />
+        </insert>
+        <insert tableName="authors">
+            <column name="first-name" value="Anatoly" />
+            <column name="middle-name"  />
+            <column name="last-name" value="Shcharansky" />
+        </insert>
+<!--        10-->
+    </changeSet>
+</databaseChangeLog>

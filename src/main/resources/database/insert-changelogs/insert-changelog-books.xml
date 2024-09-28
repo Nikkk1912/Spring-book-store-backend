@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+ <!--
+    <insert tableName="books">
+        <column name="title" value="Text value" />
+        <column name="price" value="123" />
+        <column name="stock" value="true" />
+        <column name="cover-file-name" value="null" />
+    </insert>
+-->
+
+<!-- Books
+    Game of Thrones
+    The Heart and the Rose
+    A Preface to Ezra Pound
+    A Beatrice Letters
+    Inca Gold
+    The Bachman Books
+    Psychology of adjustment
+    Eat that frog!
+    Build mental muscle
+    Fear no evil
+-->
+
+    <changeSet id="1" author="Nikkk">
+<!--        Start-->
+        <insert tableName="books">
+            <column name="title" value="Game of Thrones" />
+            <column name="price" value="10.99" />
+            <column name="stock" value="54" />
+            <column name="cover-file-name" value="game-of-thrones.jpg" />
+        </insert>
+        <insert tableName="books">
+            <column name="title" value="The Heart and the Rose" />
+            <column name="price" value="5.99" />
+            <column name="stock" value="10" />
+            <column name="cover-file-name" value="the-heart-and-the-rose.jpg" />
+        </insert>
+        <insert tableName="books">
+            <column name="title" value="A Preface to Ezra Pound" />
+            <column name="price" value="6.99" />
+            <column name="stock" value="23" />
+            <column name="cover-file-name" value="a-preface-to-ezra-pound.jpg" />
+        </insert>
+        <insert tableName="books">
+            <column name="title" value="A Beatrice Letters" />
+            <column name="price" value="10.35" />
+            <column name="stock" value="77" />
+            <column name="cover-file-name" value="a-beatrice-letter.jpg" />
+        </insert>
+        <insert tableName="books">
+            <column name="title" value="Inca Gold" />
+            <column name="price" value="11" />
+            <column name="stock" value="2" />
+            <column name="cover-file-name" value="inca-gold.jpg" />
+        </insert>
+<!--        5-->
+        <insert tableName="books">
+            <column name="title" value="The Bachman Books" />
+            <column name="price" value="15" />
+            <column name="stock" value="5" />
+            <column name="cover-file-name" value="the-bachman-books.jpg" />
+        </insert>
+        <insert tableName="books">
+            <column name="title" value="Psychology of adjustment" />
+            <column name="price" value="12.67" />
+            <column name="stock" value="12" />
+            <column name="cover-file-name" value="psychology-of-adjustment.jpg" />
+        </insert>
+        <insert tableName="books">
+            <column name="title" value="Eat that frog!" />
+            <column name="price" value="12" />
+            <column name="stock" value="44" />
+            <column name="cover-file-name" value="eat-that-frog.jpg" />
+        </insert>
+        <insert tableName="books">
+            <column name="title" value="Build mental muscle" />
+            <column name="price" value="11" />
+            <column name="stock" value="33" />
+            <column name="cover-file-name" value="build-mental-muscle.jpg" />
+        </insert>
+        <insert tableName="books">
+            <column name="title" value="Fear no evil" />
+            <column name="price" value="15" />
+            <column name="stock" value="25" />
+            <column name="cover-file-name" value="fear-no-evil.jpg" />
+        </insert>
+<!--        10-->
+    </changeSet>
+</databaseChangeLog>

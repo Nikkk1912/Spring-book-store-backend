@@ -6,14 +6,14 @@
 
 <!--    Books-->
     <include file="database/init-changelogs/init-changelog-books.xml"/>
-<!--    <include file="database/insert-changelogs/insert-changelog-books.xml"/>-->
+    <include file="database/insert-changelogs/insert-changelog-books.xml"/>
 
 <!--    Authors-->
     <include file="database/init-changelogs/init-changelog-authors.xml"/>
-<!--    <include file="database/insert-changelogs/insert-changelog-authors.xml"/>-->
+    <include file="database/insert-changelogs/insert-changelog-authors.xml"/>
 
 <!--    Genres-->
     <include file="database/init-changelogs/init-changelog-genres.xml"/>
-<!--    <include file="database/insert-changelogs/insert-changelog-genres.xml"/>-->
+    <include file="database/insert-changelogs/insert-changelog-genres.xml"/>
 
 </databaseChangeLog>

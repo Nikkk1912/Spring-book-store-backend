@@ -10,12 +10,18 @@ import java.util.List;
 @Setter
 
 @Entity
+@Table(name = "genres")
 public class Genre {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name = "genre")
     private String genre;
 
     @ManyToMany(mappedBy = "genres")
     private List<Book> books;
+
+    public void addBook(Book book) {
+        books.add(book);
+    }
 }

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+
+<!--
+    <insert tableName="genres">
+       <column name="genre" value="" />
+   </insert>
+-->
+
+<!--
+    Horror
+    Fantasy
+    Science Fiction
+    Mystery
+    Thriller
+    Historical Fiction
+    Adventure
+    Dystopian
+    Contemporary Fiction
+    Non-Fiction
+    Biography
+    Memoir
+    Paranormal
+    Crime Fiction
+    Psychology
+    Children's Literature
+    Classic Literature
+    Graphic Novels/Comics
+    Poetry
+    Western
+-->
+
+    <changeSet id="1" author="Nikkk">
+<!--        Start-->
+        <insert tableName="genres">
+            <column name="genre" value="Horror" />
+        </insert>
+        <insert tableName="genres">
+            <column name="genre" value="Fantasy" />
+        </insert>
+        <insert tableName="genres">
+            <column name="genre" value="Science Fiction" />
+        </insert>
+        <insert tableName="genres">
+            <column name="genre" value="Mystery" />
+        </insert>
+        <insert tableName="genres">
+            <column name="genre" value="Thriller" />
+        </insert>
+<!--        5-->
+        <insert tableName="genres">
+            <column name="genre" value="Historical Fiction" />
+        </insert>
+        <insert tableName="genres">
+            <column name="genre" value="Adventure" />
+        </insert>
+        <insert tableName="genres">
+            <column name="genre" value="Dystopian" />
+        </insert>
+        <insert tableName="genres">
+            <column name="genre" value="Contemporary Fiction" />
+        </insert>
+        <insert tableName="genres">
+            <column name="genre" value="Non-Fiction" />
+        </insert>
+<!--        10-->
+        <insert tableName="genres">
+            <column name="genre" value="Biography" />
+        </insert>
+        <insert tableName="genres">
+            <column name="genre" value="Memoir" />
+        </insert>
+        <insert tableName="genres">
+            <column name="genre" value="Paranormal" />
+        </insert>
+        <insert tableName="genres">
+            <column name="genre" value="Crime Fiction" />
+        </insert>
+        <insert tableName="genres">
+            <column name="genre" value="Psychology" />
+        </insert>
+<!--        15-->
+        <insert tableName="genres">
+            <column name="genre" value="Children's Literature" />
+        </insert>
+        <insert tableName="genres">
+            <column name="genre" value="Classic Literature" />
+        </insert>
+        <insert tableName="genres">
+            <column name="genre" value="Graphic Novels/Comics" />
+        </insert>
+        <insert tableName="genres">
+            <column name="genre" value="Poetry" />
+        </insert>
+        <insert tableName="genres">
+            <column name="genre" value="Western" />
+        </insert>
+<!--        20-->
+    </changeSet>
+</databaseChangeLog>
