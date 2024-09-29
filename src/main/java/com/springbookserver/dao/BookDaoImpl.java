@@ -5,6 +5,8 @@ import com.springbookserver.exeption_handling.exceptions.BookNotFoundException;
 import com.springbookserver.model.Book;
 import com.springbookserver.repository.BookRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -29,6 +31,16 @@ public class BookDaoImpl implements BookDao {
     @Override
     public Book save(Book book) {
         return bookRepository.saveAndFlush(book);
+    }
+
+    @Override
+    public Page<Book> findAll(Pageable pageable) {
+        return bookRepository.findAll(pageable);
+    }
+
+    @Override
+    public Page<Book> getByKeyWord(String searchTerm, Pageable pageable) {
+        return bookRepository.searchBooksByTitleOrAuthor(searchTerm, pageable);
     }
 
 }
