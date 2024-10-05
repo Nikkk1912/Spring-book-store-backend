@@ -12,9 +12,10 @@
 
     <groupId>nik.springbookserver</groupId>
     <artifactId>Spring-book-server</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
     <name>Spring-book-server</name>
     <description>Spring-book-server</description>
+    <packaging>jar</packaging>
     <url/>
 
     <licenses>
@@ -85,6 +86,13 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
                 <configuration>
                     <excludes>
                         <exclude>
