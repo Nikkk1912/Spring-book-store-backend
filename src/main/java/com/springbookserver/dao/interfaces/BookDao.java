@@ -14,4 +14,7 @@ public interface BookDao {
     Page<Book> findAll(Pageable pageable);
     Page<Book> getByKeyWord(@Param("searchTerm") String searchTerm, Pageable pageable);
 
+    Book update(Book book);
+
+    void delete(Long id);
 }

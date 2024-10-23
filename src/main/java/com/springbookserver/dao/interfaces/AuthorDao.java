@@ -8,4 +8,6 @@ public interface AuthorDao {
     List<Author> getAll();
     Author getById(Long id);
     Author save(Author author);
+    Author update(Author author);
+    void delete(Long id);
 }

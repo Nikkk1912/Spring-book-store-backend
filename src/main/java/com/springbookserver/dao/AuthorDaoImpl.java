@@ -29,4 +29,14 @@ public class AuthorDaoImpl implements AuthorDao {
     public Author save(Author author) {
         return authorRepository.saveAndFlush(author);
     }
+
+    @Override
+    public Author update(Author author) {
+        return authorRepository.saveAndFlush(author);
+    }
+
+    @Override
+    public void delete(Long id) {
+        authorRepository.delete(getById(id));
+    }
 }

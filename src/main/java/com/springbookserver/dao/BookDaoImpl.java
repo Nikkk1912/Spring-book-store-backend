@@ -43,4 +43,14 @@ public class BookDaoImpl implements BookDao {
         return bookRepository.searchBooksByTitleOrAuthor(searchTerm, pageable);
     }
 
+    @Override
+    public Book update(Book book) {
+        return bookRepository.saveAndFlush(book);
+    }
+
+    @Override
+    public void delete(Long id) {
+        bookRepository.delete(getById(id));
+    }
+
 }

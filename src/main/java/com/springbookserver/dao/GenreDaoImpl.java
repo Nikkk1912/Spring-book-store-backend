@@ -30,4 +30,14 @@ public class GenreDaoImpl implements GenreDao {
     public Genre save(Genre genre) {
         return genreRepository.saveAndFlush(genre);
     }
+
+    @Override
+    public Genre update(Genre genre) {
+        return genreRepository.saveAndFlush(genre);
+    }
+
+    @Override
+    public void delete(long id) {
+        genreRepository.delete(getById(id));
+    }
 }

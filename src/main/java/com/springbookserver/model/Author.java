@@ -28,6 +28,12 @@ public class Author {
     @ManyToMany(mappedBy = "authors")
     private List<Book> books;
 
+    public Author(String firstName, String middleName, String lastName) {
+        this.firstName = firstName;
+        this.middleName = middleName;
+        this.lastName = lastName;
+    }
+
     public void addBook(Book book) {
         books.add(book);
     }

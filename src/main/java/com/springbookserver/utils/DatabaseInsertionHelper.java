@@ -10,7 +10,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Component
 @RequiredArgsConstructor
@@ -45,21 +47,21 @@ public class DatabaseInsertionHelper {
             Book book = bookDao.getById(bookIds[i]);
             Author author = authorDao.getById(authorIds[i]);
 
-            // Establish connections
-            if (book != null && author != null) {
+            // Check if the book and author are already connected
+            if (book != null && author != null && !book.getAuthors().contains(author)) {
                 book.addAuthor(author);
 
                 // Retrieve genres and establish multiple connections
+                Set<Genre> existingGenres = new HashSet<>(book.getGenres()); // To avoid duplicates
                 for (Long genreId : genreIdsList.get(i)) {
                     Genre genre = genreDao.getById(genreId);
-                    if (genre != null) {
+                    if (genre != null && !existingGenres.contains(genre)) {
                         book.addGenre(genre);
                     }
                 }
 
                 // Save the updated book back to the database
                 bookDao.save(book);
-                authorDao.save(author); // Optional if you want to ensure the author is saved
             }
         }
     }

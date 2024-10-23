@@ -21,6 +21,10 @@ public class Genre {
     @ManyToMany(mappedBy = "genres")
     private List<Book> books;
 
+    public Genre(String genre) {
+        this.genre = genre;
+    }
+
     public void addBook(Book book) {
         books.add(book);
     }
