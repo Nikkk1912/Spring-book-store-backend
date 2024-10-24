@@ -16,4 +16,14 @@
     <include file="database/init-changelogs/init-changelog-genres.xml"/>
     <include file="database/insert-changelogs/insert-changelog-genres.xml"/>
 
+<!--    Users-->
+    <include file="database/init-changelogs/init-changelog-users.xml"/>
+
+<!--    Carts-->
+    <include file="database/init-changelogs/init-changelog-carts.xml"/>
+
+<!--    Cart_Items-->
+    <include file="database/init-changelogs/init-changelog-cart-items.xml"/>
+
+
 </databaseChangeLog>
