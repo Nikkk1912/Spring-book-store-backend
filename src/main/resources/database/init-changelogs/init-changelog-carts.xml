@@ -21,6 +21,11 @@
             </column>
 
         </createTable>
+
+        <addForeignKeyConstraint baseTableName="carts" baseColumnNames="id"
+                                 referencedTableName="users" referencedColumnNames="id"
+                                 constraintName="fk_cart_user"/>
+
     </changeSet>
 
 </databaseChangeLog>

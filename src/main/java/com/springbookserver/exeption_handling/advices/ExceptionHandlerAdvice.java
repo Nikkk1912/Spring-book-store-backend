@@ -1,9 +1,6 @@
 package com.springbookserver.exeption_handling.advices;
 
-import com.springbookserver.exeption_handling.exceptions.AuthorNotFoundException;
-import com.springbookserver.exeption_handling.exceptions.BookNotFoundException;
-import com.springbookserver.exeption_handling.exceptions.GenreNotFoundException;
-import com.springbookserver.exeption_handling.exceptions.ImageNotFoundException;
+import com.springbookserver.exeption_handling.exceptions.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -29,6 +26,16 @@ public class ExceptionHandlerAdvice {
 
     @ExceptionHandler(ImageNotFoundException.class)
     public ResponseEntity<String> handleImageNotFound(ImageNotFoundException ex) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
+    }
+
+    @ExceptionHandler(UserNotFoundException.class)
+    public ResponseEntity<String> handleUserNotFound(UserNotFoundException ex) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
+    }
+
+    @ExceptionHandler(CartNotFoundException.class)
+    public ResponseEntity<String> handleCartNotFound(CartNotFoundException ex) {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
     }
 }

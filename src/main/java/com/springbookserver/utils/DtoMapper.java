@@ -1,14 +1,12 @@
 package com.springbookserver.utils;
 
-import com.springbookserver.dto.response.AuthorResponseDto;
-import com.springbookserver.dto.response.BookResponseDto;
-import com.springbookserver.dto.response.GenreResponseDto;
-import com.springbookserver.model.Author;
-import com.springbookserver.model.Book;
-import com.springbookserver.model.Genre;
+import com.springbookserver.dto.response.*;
+import com.springbookserver.model.*;
 import org.springframework.stereotype.Component;
 
+import java.math.BigDecimal;
 import java.util.List;
+import java.util.function.Function;
 
 @Component
 public class DtoMapper {
@@ -51,5 +49,35 @@ public class DtoMapper {
         genreResponseDto.setId(genre.getId());
         genreResponseDto.setGenre(genre.getGenre());
         return genreResponseDto;
+    }
+
+    public static UserResponseDto userToDto(User user) {
+        UserResponseDto userResponseDto = new UserResponseDto();
+        userResponseDto.setId(user.getId());
+        userResponseDto.setEmail(user.getEmail());
+        userResponseDto.setUsername(user.getUsername());
+        userResponseDto.setCartResponseDto(cartToDto(user.getCart()));
+        return userResponseDto;
+    }
+
+    public static CartResponseDto cartToDto(Cart cart) {
+        CartResponseDto cartResponseDto = new CartResponseDto();
+        cartResponseDto.setId(cart.getId());
+        cartResponseDto.setCreatedAt(cart.getCreatedAt());
+        cartResponseDto.setUserOwnerId(cart.getCartOwner().getId());
+        cartResponseDto.setTotalPrice(cart.getItems().stream()
+                .map(item -> item.getPrice().multiply(BigDecimal.valueOf(item.getQuantity())))
+                .reduce(BigDecimal.ZERO, BigDecimal::add));
+        cartResponseDto.setItems(cart.getItems().stream().map(DtoMapper::cartItemToDto).toList());
+        return cartResponseDto;
+    }
+
+    public static CartItemResponseDto cartItemToDto(CartItem cartItem) {
+        CartItemResponseDto cartItemResponseDto = new CartItemResponseDto();
+        cartItemResponseDto.setId(cartItem.getId());
+        cartItemResponseDto.setProductId(cartItem.getProductId());
+        cartItemResponseDto.setQuantity(cartItem.getQuantity());
+        cartItemResponseDto.setPrice(cartItem.getPrice());
+        return cartItemResponseDto;
     }
 }
