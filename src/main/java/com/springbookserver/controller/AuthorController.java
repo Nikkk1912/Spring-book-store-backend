@@ -1,11 +1,7 @@
 package com.springbookserver.controller;
 
 import com.springbookserver.dto.reques.AuthorRequestDto;
-import com.springbookserver.dto.reques.BookRequestDto;
 import com.springbookserver.dto.response.AuthorResponseDto;
-import com.springbookserver.dto.response.BookResponseDto;
-import com.springbookserver.model.Author;
-import com.springbookserver.repository.AuthorRepository;
 import com.springbookserver.service.interfaces.AuthorService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

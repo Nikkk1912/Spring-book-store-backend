@@ -2,12 +2,14 @@ package com.springbookserver.model;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 import java.util.List;
 
 @Getter
 @Setter
+@RequiredArgsConstructor
 
 @Entity
 @Table(name = "genres")

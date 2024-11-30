@@ -10,9 +10,6 @@ spring:
       connection-timeout: 30000 # 30 seconds in milliseconds
       idle-timeout: 600000 # 10 minutes in milliseconds
 
-  image:
-    dir: src/main/resources/static/
-
   jpa:
     hibernate:
       ddl-auto: update
@@ -28,4 +25,4 @@ spring:
     change-log: classpath:database/db.changelog-master.xml
 
 server:
-  port: 8000
+  port: 8080

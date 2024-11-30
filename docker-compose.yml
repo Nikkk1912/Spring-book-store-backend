@@ -4,7 +4,7 @@ services:
   spring-app:
     build: .
     ports:
-      - "8000:8080" # Map host port 8080 to container port 8080
+      - "8080:8080" # Map host port 8000 to container port 8080
     depends_on:
       - postgres # Ensure the database starts before the app
     environment:
