@@ -1,9 +1,9 @@
 package com.springbookserver.service;
 
 import com.springbookserver.dto.response.BookResponseDto;
-import com.springbookserver.model.SortingOrder;
 import com.springbookserver.service.interfaces.BookService;
 import com.springbookserver.service.interfaces.BookToXmlService;
+import com.springbookserver.utils.ContentToFileWriter;
 import com.springbookserver.xml.BooksXmlWrapper;
 import com.springbookserver.xml.xml_dto.AuthorXmlDto;
 import com.springbookserver.xml.xml_dto.BookXmlDto;
@@ -13,16 +13,11 @@ import jakarta.xml.bind.JAXBException;
 import jakarta.xml.bind.Marshaller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.StringWriter;
-import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -47,7 +42,7 @@ public class BookToXmlServiceImpl implements BookToXmlService {
         marshaller.marshal(booksWrapper, writer);
         String xmlContent = writer.toString();
 
-        Path pathToXml = saveXmlToFile(savePath, xmlContent);
+        Path pathToXml = ContentToFileWriter.saveStringToFile(savePath, xmlContent);
 
         return pathToXml.toString();
     }
@@ -79,20 +74,5 @@ public class BookToXmlServiceImpl implements BookToXmlService {
         xmlDto.setGenres(genres);
 
         return xmlDto;
-    }
-
-    private Path saveXmlToFile(String savePath, String xmlContent) throws IOException {
-        Path path = Paths.get(savePath, "books.xml");
-        Path parentDir = path.getParent();
-
-        if (parentDir != null && !Files.exists(parentDir)) {
-            Files.createDirectories(parentDir);
-        }
-
-        try (FileWriter fileWriter = new FileWriter(path.toFile())) {
-            fileWriter.write(xmlContent);
-        }
-
-        return path;
     }
 }

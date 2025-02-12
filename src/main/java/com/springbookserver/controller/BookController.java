@@ -6,7 +6,6 @@ import com.springbookserver.model.SortingOrder;
 import com.springbookserver.service.interfaces.BookService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import lombok.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.web.PagedResourcesAssembler;
 import org.springframework.hateoas.EntityModel;
