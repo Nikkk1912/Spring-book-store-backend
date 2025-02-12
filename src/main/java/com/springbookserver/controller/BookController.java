@@ -48,7 +48,7 @@ public class BookController {
         return ResponseEntity.ok(pagedModel);
     }
 
-    @GetMapping("search")
+    @GetMapping("/search")
     public ResponseEntity<PagedModel<EntityModel<BookResponseDto>>> getByKeyWord(@RequestParam String searchKeyWord,
                                                                                  @RequestParam(defaultValue = "0") int pageNum,
                                                                                  @RequestParam(defaultValue = "5") int pageSize,

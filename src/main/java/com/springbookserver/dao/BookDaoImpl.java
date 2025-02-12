@@ -40,7 +40,8 @@ public class BookDaoImpl implements BookDao {
 
     @Override
     public Page<Book> getByKeyWord(String searchTerm, Pageable pageable) {
-        return bookRepository.searchBooksByTitleOrAuthor(searchTerm, pageable);
+        return bookRepository.searchBooksByTitleOrAuthorOrGenre(searchTerm, pageable);
+//        return bookRepository.searchBooksByTitleOrAuthorOrGenre(searchTerm, pageable);
     }
 
     @Override
