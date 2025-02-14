@@ -1,32 +1,29 @@
 package com.springbookserver.config;
 
+import io.restassured.RestAssured;
+import io.restassured.specification.RequestSpecification;
 import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 import org.testcontainers.containers.PostgreSQLContainer;
+import org.testcontainers.utility.DockerImageName;
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class TestContainerConfigurer {
+public abstract class TestContainerConfigurer {
 
     @LocalServerPort
-    private Integer port;
+    private int port;
 
     protected RequestSpecification requestSpec;
 
-    static PostgreSQLContainer<?> postgres = new PostgreSQLContainer<>("TestContainer - Postgres");
+    private static final PostgreSQLContainer<?> postgres = new PostgreSQLContainer<>(DockerImageName.parse("postgres:17"))
+            .withDatabaseName("testdb")
+            .withUsername("testuser")
+            .withPassword("testpass");
 
-    @BeforeAll
-    static void beforeAll() {
+    static {
         postgres.start();
-    }
-
-    @AfterAll
-    static void afterAll() {
-        postgres.stop();
     }
 
     @DynamicPropertySource
@@ -38,7 +35,11 @@ public class TestContainerConfigurer {
 
     @BeforeEach
     void setUp() {
-        requestSpec = RestAssured.given().baseUri("http://localhost:") + port;
+        requestSpec = RestAssured.given().baseUri("http://localhost:" + port);
     }
 
+    @AfterAll
+    static void stopContainer() {
+        postgres.stop();
+    }
 }
