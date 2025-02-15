@@ -10,13 +10,19 @@ import org.springframework.transaction.annotation.Transactional;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-@SpringBootTest(classes = Application.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest(classes = Application.class)
 public class BookToXmlServiceTest {
 
     @Autowired
     private BookToXmlService bookXmlService;
+
+    @Test
+    void contextLoads() {
+        assertThat(bookXmlService).isNotNull();
+    }
 
     @Test
     @Transactional

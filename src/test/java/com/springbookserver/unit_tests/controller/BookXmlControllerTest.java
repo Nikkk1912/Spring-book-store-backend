@@ -1,9 +1,11 @@
 package com.springbookserver.unit_tests.controller;
 
 import com.springbookserver.Application;
-import com.springbookserver.config.TestContainerConfigurer;
+import com.springbookserver.config.PostgreSQLExtension;
+import com.springbookserver.config.RestAssuredConfigurer;
 import com.springbookserver.controller.BookXmlController;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -14,18 +16,22 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static io.restassured.http.ContentType.TEXT;
 import static org.hamcrest.Matchers.equalTo;
 
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @SpringBootTest(classes = Application.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class BookXmlControllerTest extends TestContainerConfigurer {
+@ExtendWith({PostgreSQLExtension.class})
+class BookXmlControllerTest extends RestAssuredConfigurer {
 
     @Autowired
     private BookXmlController bookXmlController;
 
     @Test
+    @Order(1)
     void contextLoads() {
         assertThat(bookXmlController).isNotNull();
     }
 
     @Test
+    @Order(2)
     void shouldSaveXmlAndReturnSuccess() {
         requestSpec
                 .contentType(TEXT)
@@ -42,6 +48,7 @@ class BookXmlControllerTest extends TestContainerConfigurer {
     }
 
     @Test
+    @Order(3)
     void shouldReturnBadRequestWithMissingArgument() {
         requestSpec
                 .contentType(JSON)

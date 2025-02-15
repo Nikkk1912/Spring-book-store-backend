@@ -9,7 +9,6 @@ import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 import java.util.List;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 /**
@@ -131,7 +130,7 @@ public class DtoMapper {
      * @param dto The BookResponseDto to be converted.
      * @return The corresponding BookXmlDto.
      */
-    public static BookXmlDto convertToXmlDto(BookResponseDto dto) {
+    public static BookXmlDto bookResponseDtoConvertToXmlDto(BookResponseDto dto) {
         BookXmlDto xmlDto = new BookXmlDto();
         xmlDto.setId(dto.getId());
         xmlDto.setTitle(dto.getTitle());

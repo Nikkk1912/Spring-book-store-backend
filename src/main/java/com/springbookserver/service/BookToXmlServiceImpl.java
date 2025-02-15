@@ -6,9 +6,7 @@ import com.springbookserver.service.interfaces.BookToXmlService;
 import com.springbookserver.utils.ContentToFileWriter;
 import com.springbookserver.utils.DtoMapper;
 import com.springbookserver.xml.BooksXmlWrapper;
-import com.springbookserver.xml.xml_dto.AuthorXmlDto;
 import com.springbookserver.xml.xml_dto.BookXmlDto;
-import com.springbookserver.xml.xml_dto.GenreXmlDto;
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBException;
 import jakarta.xml.bind.Marshaller;
@@ -34,7 +32,7 @@ public class BookToXmlServiceImpl implements BookToXmlService {
     public String filterAndSaveBooksToXml(int pageNum, int pageSize, String searchWord, String savePath) throws IOException, JAXBException {
         Page<BookResponseDto> books = bookService.getByKeyWord(pageNum, pageSize, searchWord);
 
-        List<BookXmlDto> xmlBooks = books.getContent().stream().map(DtoMapper::convertToXmlDto)
+        List<BookXmlDto> xmlBooks = books.getContent().stream().map(DtoMapper::bookResponseDtoConvertToXmlDto)
                 .collect(Collectors.toList());
         BooksXmlWrapper booksWrapper = new BooksXmlWrapper(xmlBooks);
 
