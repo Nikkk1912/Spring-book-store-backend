@@ -1,4 +1,8 @@
 spring:
+  main:
+#    lazy-initialization: false
+    allow-bean-definition-overriding: true
+
   datasource:
     url: jdbc:postgresql://localhost:5432/spring-book
     username: postgres
@@ -30,3 +34,13 @@ server:
 path:
   xml:
     save: "C:\\savedXml"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+        exclude: shutdown
+  endpoint:
+    health:
+      show-details: always

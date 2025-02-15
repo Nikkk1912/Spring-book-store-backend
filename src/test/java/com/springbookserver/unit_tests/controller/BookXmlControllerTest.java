@@ -9,8 +9,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.Map;
 
+import static io.restassured.http.ContentType.JSON;
 import static org.assertj.core.api.Assertions.assertThat;
 import static io.restassured.http.ContentType.TEXT;
+import static org.hamcrest.Matchers.equalTo;
 
 @SpringBootTest(classes = Application.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class BookXmlControllerTest extends TestContainerConfigurer {
@@ -37,5 +39,21 @@ class BookXmlControllerTest extends TestContainerConfigurer {
                 .get("/books/xml")
                 .then()
                 .statusCode(200);
+    }
+
+    @Test
+    void shouldReturnBadRequestWithMissingArgument() {
+        requestSpec
+                .contentType(JSON)
+                .queryParams(Map.of(
+                        "pageNum", 0,
+                        "pageSize", 2
+                ))
+                .when()
+                .get("/books/xml")
+                .then()
+                .statusCode(400)
+                .body("error", equalTo("Bad Request"))
+                .body("path", equalTo("/books/xml"));
     }
 }

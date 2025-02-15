@@ -26,11 +26,9 @@ public class DatabaseInsertionHelper {
     // Function to connect Books, Authors and Genres inserted by Liquibase changelogs
     @Transactional
     public void connectBooksAndAuthorsAndGenres() {
-        // Arrays of IDs for books and authors
         Long[] bookIds = {1L, 2L, 3L, 4L, 5L, 6L, 7L, 8L, 9L, 10L};
         Long[] authorIds = {1L, 2L, 3L, 4L, 5L, 6L, 7L, 8L, 9L, 10L};
 
-        // List of genre IDs for each book (each entry can contain multiple genre IDs)
         List<List<Long>> genreIdsList = Arrays.asList(
                 Arrays.asList(2L),                     // Game of Thrones → Fantasy
                 Arrays.asList(1L, 15L),                // The Heart and the Rose → Romance, Children's Literature
@@ -45,16 +43,13 @@ public class DatabaseInsertionHelper {
         );
 
         for (int i = 0; i < bookIds.length; i++) {
-            // Retrieve the book and author from the database
             Book book = bookDao.getById(bookIds[i]);
             Author author = authorDao.getById(authorIds[i]);
 
-            // Check if the book and author are already connected
             if (book != null && author != null && !book.getAuthors().contains(author)) {
                 book.addAuthor(author);
 
-                // Retrieve genres and establish multiple connections
-                Set<Genre> existingGenres = new HashSet<>(book.getGenres()); // To avoid duplicates
+                Set<Genre> existingGenres = new HashSet<>(book.getGenres());
                 for (Long genreId : genreIdsList.get(i)) {
                     Genre genre = genreDao.getById(genreId);
                     if (genre != null && !existingGenres.contains(genre)) {
@@ -62,7 +57,6 @@ public class DatabaseInsertionHelper {
                     }
                 }
 
-                // Save the updated book back to the database
                 bookDao.save(book);
             }
         }
