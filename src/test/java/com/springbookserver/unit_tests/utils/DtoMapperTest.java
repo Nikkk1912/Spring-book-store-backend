@@ -31,7 +31,7 @@ public class DtoMapperTest {
     private final List<AuthorXmlDto> authorXmlDtoList = List.of(new AuthorXmlDto(1L, "Name-1", null, "Lastname-1"));
     private final List<GenreXmlDto> genreXmlDtoList = List.of(new GenreXmlDto(1L, "Genre-1"));
 
-    private BookXmlDto bookXmlDto = new BookXmlDto(
+    private final BookXmlDto bookXmlDto = new BookXmlDto(
             1L,
             "BookTitle-1",
             authorXmlDtoList,

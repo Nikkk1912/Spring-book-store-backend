@@ -5,6 +5,8 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
+diagrams/
+
 ### STS ###
 .apt_generated
 .classpath

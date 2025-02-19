@@ -30,16 +30,16 @@ public class DatabaseInsertionHelper {
         Long[] authorIds = {1L, 2L, 3L, 4L, 5L, 6L, 7L, 8L, 9L, 10L};
 
         List<List<Long>> genreIdsList = Arrays.asList(
-                Arrays.asList(2L),                     // Game of Thrones → Fantasy
+                List.of(2L),                     // Game of Thrones → Fantasy
                 Arrays.asList(1L, 15L),                // The Heart and the Rose → Romance, Children's Literature
-                Arrays.asList(10L),                    // A Preface to Ezra Pound → Non-Fiction
+                List.of(10L),                    // A Preface to Ezra Pound → Non-Fiction
                 Arrays.asList(15L, 3L),                 // A Beatrice Letters → Children's Literature, Adventure
                 Arrays.asList(7L, 10L),                 // Inca Gold → Adventure, Mystery
                 Arrays.asList(6L, 12L),                 // The Bachman Books → Horror, Crime Fiction
-                Arrays.asList(14L),                     // Psychology of adjustment → Psychology
-                Arrays.asList(3L),                      // Eat that frog! → Self-Help
+                List.of(14L),                     // Psychology of adjustment → Psychology
+                List.of(3L),                      // Eat that frog! → Self-Help
                 Arrays.asList(3L, 11L),                 // Build mental muscle → Self-Help, Biography
-                Arrays.asList(11L)                      // Fear no evil → Biography
+                List.of(11L)                      // Fear no evil → Biography
         );
 
         for (int i = 0; i < bookIds.length; i++) {
