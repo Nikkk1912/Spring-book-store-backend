@@ -25,8 +25,8 @@ public class Book {
     private String title;
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "book_authors",
-                joinColumns = @JoinColumn(name = "book_id"),
-                inverseJoinColumns = @JoinColumn(name = "author_id"))
+            joinColumns = @JoinColumn(name = "book_id"),
+            inverseJoinColumns = @JoinColumn(name = "author_id"))
     private List<Author> authors = new ArrayList<>();
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "book_genres",
@@ -35,7 +35,7 @@ public class Book {
     private List<Genre> genres = new ArrayList<>();
     private BigDecimal price;
     private int stock;
-    @Column(name="cover-file-name")
+    @Column(name = "cover-file-name")
     private String coverImageFile;
 
     public void addAuthor(Author author) {
