@@ -1,46 +1,49 @@
+# Spring Boot application configuration file
 spring:
   main:
-#    lazy-initialization: false
+    # Enable overriding of bean definitions
     allow-bean-definition-overriding: true
 
   datasource:
+    # Database connection details
     url: jdbc:postgresql://localhost:5432/spring-book
     username: postgres
     password: 1912
     driver-class-name: org.postgresql.Driver
 
     hikari:
+      # Connection pool settings
       max-lifetime: 1800000 # 30 minutes in milliseconds
       connection-timeout: 30000 # 30 seconds in milliseconds
       idle-timeout: 600000 # 10 minutes in milliseconds
 
   jpa:
     hibernate:
-      ddl-auto: update
-    show-sql: false
+      ddl-auto: none # Automatically update the database schema
+    show-sql: false # Disable SQL logging
     properties:
       hibernate:
-        format_sql: true
+        format_sql: true # Pretty-print SQL queries
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
 
   liquibase:
-    enabled: true
+    enabled: true # Enable Liquibase for database migrations
     change-log: classpath:database/db.changelog-master.xml
 
 server:
-  port: 8000
+  port: 8000 # Application server port
 
 path:
   xml:
-    save: "C:\\savedXml"
+    save: "C:\\savedXml" # Directory for saving XML files
 
 management:
   endpoints:
     web:
       exposure:
-        include: health
-        exclude: shutdown
+        include: health # Expose only health endpoint
+        exclude: shutdown # Hide shutdown endpoint
   endpoint:
     health:
-      show-details: always
+      show-details: always # Show detailed health status

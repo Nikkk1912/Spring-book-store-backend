@@ -4,26 +4,36 @@
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
 
-<!--    Books-->
+    <!--    Books-->
     <include file="database/init-changelogs/init-changelog-books.xml"/>
     <include file="database/insert-changelogs/insert-changelog-books.xml"/>
 
-<!--    Authors-->
+    <!--    Authors-->
     <include file="database/init-changelogs/init-changelog-authors.xml"/>
     <include file="database/insert-changelogs/insert-changelog-authors.xml"/>
 
-<!--    Genres-->
+    <!--    Genres-->
     <include file="database/init-changelogs/init-changelog-genres.xml"/>
     <include file="database/insert-changelogs/insert-changelog-genres.xml"/>
 
-<!--    Users-->
+    <!--    Users-->
     <include file="database/init-changelogs/init-changelog-users.xml"/>
 
-<!--    Carts-->
+    <!--    Carts-->
     <include file="database/init-changelogs/init-changelog-carts.xml"/>
 
-<!--    Cart_Items-->
+    <!--    Cart_Items-->
     <include file="database/init-changelogs/init-changelog-cart-items.xml"/>
+
+    <!--    Book-Authors Table-->
+    <include file="database/init-changelogs/init-changelog-book-authors.xml"/>
+
+    <!--    Book-Genres Table-->
+    <include file="database/init-changelogs/init-changelog-book-genres.xml"/>
+
+    <!--    Data connection-->
+    <include file="database/connection-changelogs/connection-changelog-book-authors.xml"/>
+    <include file="database/connection-changelogs/connection-changelog-book-genres.xml"/>
 
 
 </databaseChangeLog>

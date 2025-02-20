@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <!-- ChangeSet to insert data into book_authors -->
+    <changeSet id="1" author="Nikkk">
+        <insert tableName="book_authors">
+            <column name="book_id" value="1"/>
+            <column name="author_id" value="1"/>
+        </insert>
+        <insert tableName="book_authors">
+            <column name="book_id" value="2"/>
+            <column name="author_id" value="2"/>
+        </insert>
+        <insert tableName="book_authors">
+            <column name="book_id" value="3"/>
+            <column name="author_id" value="3"/>
+        </insert>
+        <insert tableName="book_authors">
+            <column name="book_id" value="4"/>
+            <column name="author_id" value="4"/>
+        </insert>
+        <insert tableName="book_authors">
+            <column name="book_id" value="5"/>
+            <column name="author_id" value="5"/>
+        </insert>
+        <insert tableName="book_authors">
+            <column name="book_id" value="6"/>
+            <column name="author_id" value="6"/>
+        </insert>
+        <insert tableName="book_authors">
+            <column name="book_id" value="7"/>
+            <column name="author_id" value="7"/>
+        </insert>
+        <insert tableName="book_authors">
+            <column name="book_id" value="8"/>
+            <column name="author_id" value="8"/>
+        </insert>
+        <insert tableName="book_authors">
+            <column name="book_id" value="9"/>
+            <column name="author_id" value="9"/>
+        </insert>
+        <insert tableName="book_authors">
+            <column name="book_id" value="10"/>
+            <column name="author_id" value="10"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
